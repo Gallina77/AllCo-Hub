@@ -22,7 +22,9 @@ def embed_documents(chunks):
             'metadata': {
                 'doc_type': chunk.metadata.get('doc_type', 'unknown'),
                 'source_file': chunk.metadata.get('source_file', 'unknown'),
-                'chunk_index': chunk.metadata.get('start_index', i)
+                'section_header': chunk.metadata.get('section_header', 'unknown'),
+                'chunk_id': chunk.metadata.get('chunk_id', f"chunk_{i}"),
+
             }
         }
     
