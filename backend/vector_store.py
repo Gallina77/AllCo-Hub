@@ -19,18 +19,12 @@ def store_embeddings_in_chromadb(client, embedded_data, collection_name):
     embeddings = [item['embedding'] for item in embedded_data]
     metadatas = [item['metadata'] for item in embedded_data]
 
-    # ADD THESE DEBUG LINES:
-    print(f"[vector_store.py] Storing {len(embeddings)} embeddings")
-    print(f"[vector_store.py] First embedding dimension: {len(embeddings[0])}")
-    
-
     collection.add(
         ids=ids, 
         embeddings=embeddings, 
         metadatas=metadatas,
-        documents=documents  # ← Add this!
+        documents=documents  # Optional, but can be useful for debugging and retrieval
     )
-
 
 #Search by query text
 def search_in_chromadb(query_text, n_results=5, collection_name=None, client=None):
